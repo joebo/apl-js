@@ -204,6 +204,7 @@
     }
   };
 
+    /*
   DEBUG = false;
 
   test(ex(wd("5+1")).p[0] === 6);
@@ -273,5 +274,8 @@
   test2("ex(wd('0{0{0')).p", [0]);
 
   test2("ex(wd('{/0,0,0')).p", [0]);
-
+    */
+    window.apl = function(s) {
+        return ex(wd(s)).p;
+    }
 }).call(this);
