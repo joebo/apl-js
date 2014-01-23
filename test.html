@@ -1,14 +1,43 @@
+<html>
+<head>
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script src="https://rawgithub.com/joebo/apl-js/master/apl.js"></script>
+<style> label { width: 150px; display:block; float: left;} br { clear: both } </style>
+</head>
+<body>
 Lots of limitations. Can only enter single lowercase nouns. Digits must be less than 10
 <br>
-<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
-<script src="https://rawgithub.com/joebo/apl-js/master/apl.js"></script>
 
-<input type="text" id="apl" value="9#1,3,4">
-<div id="output">
+<label>reshape</label><input type="text" id="apl" value="9#1,3,4"/>
+<br><label>concat</label><input type="text" id="apl" value="3,4"/>
+<br><label>size</label><input type="text" id="apl" value="{1,2"/>
+<br><label>size boxed</label><input type="text" id="apl" value="{<1,2"/>
+<br><label>shape</label><input type="text" id="apl" value="#1,2"/>
+<br><label>shape boxed</label><input type="text" id="apl" value="#<1,2"/>
+<br><label>noun</label><input type="text" id="apl" value="a=9"/>
+<br><label>noun</label><input type="text" id="apl" value="b=8"/>
+<br><label>noun (exec above first)</label><input type="text" id="apl" value="a+b"/>
+<br><label>take</label><input type="text" id="apl" value="2{2,4,6,8"/>
+<br><label>iota</label><input type="text" id="apl" value="~9+9"/>
+
+
 <script>
 $(function() {
+
 $('input').each(function() {
-  var btn = $(this).append('<input type="button" value="eval">');
+  var $input = $(this);
+  var $btn = $('<input type="button" value="eval">');
+  var $output = $('<span class="output"></span>');
+  $(this).after($btn).after($output);
+  $btn.click(function() {
+      var output = apl($input.val());
+      $output.text(JSON.stringify(output)); 
+  });
 });
 });
 </script>
+
+<br>
+<a href="https://github.com/joebo/apl-js/blob/master/apl.coffee">github code</a>
+</body>
+</html>
