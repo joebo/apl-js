@@ -1,13 +1,14 @@
 Lots of limitations. Can only enter single lowercase nouns. Digits must be less than 10
 <br>
-<script src="apl.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
+<script src="https://rawgithub.com/joebo/apl-js/master/apl.js"></script>
+
 <input type="text" id="apl" value="9#1,3,4">
-<input type="button" value="eval" id='eval' for='apl1'>
 <div id="output">
 <script>
-document.getElementById('eval').onclick = function() {
-var text = document.getElementById('apl').value;
-var output = apl(text);
-document.getElementById('output').innerText = JSON.stringify(output);
-}
+$(function() {
+$('input').each(function() {
+  var btn = $(this).append('<input type="button" value="eval">');
+});
+});
 </script>
