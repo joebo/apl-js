@@ -169,6 +169,7 @@
     return console.log(m);
   };
 
+/*
   test(ex(wd("5+1")).p[0] === 6);
 
   test(ex(wd("b=5")).p[0] === 5);
@@ -220,5 +221,9 @@
   test(ex(wd("~9")).p + '' === '' + [0, 1, 2, 3, 4, 5, 6, 7, 8]);
 
   test(ex(wd("~9+9")).p + '' === '' + [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]);
+*/
 
+  window.apl = function(s) {
+    return ex(wd(s)).p;
+  }
 }).call(this);
